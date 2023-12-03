@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 	"strconv"
+	"time"
 )
 
 const RedCubes = 12
@@ -105,6 +106,8 @@ func CheckGamePower(game string) int {
 }
 
 func main() {
+	executionTime := time.Now()
+
 	sum := 0
 	powerSum := 0
 
@@ -118,8 +121,9 @@ func main() {
 		powerSum += CheckGamePower(line)
 	}
 
-	fmt.Printf("Sum: %d", sum)
-	fmt.Printf("Power: %d", powerSum)
+	fmt.Printf("Sum: %d \n", sum)
+	fmt.Printf("Power: %d \n", powerSum)
 
-
+	elapsed := time.Since(executionTime)
+	fmt.Println("Done in", elapsed)
 }
