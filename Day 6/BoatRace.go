@@ -39,6 +39,9 @@ func main(){
 	times := []int{}
 	distances := []int{}
 
+	big_time := ""
+	big_distance := ""
+
 	for scanner.Scan() {
 		line := scanner.Text()
 		fmt.Println(line)
@@ -49,6 +52,7 @@ func main(){
 				num_val, err := strconv.Atoi(element)
 				if err == nil {
 					times = append(times, num_val)
+					big_time += element
 				}
 			}
 		}	
@@ -59,6 +63,7 @@ func main(){
 				num_val, err := strconv.Atoi(element)
 				if err == nil {
 					distances = append(distances, num_val)
+					big_distance += element
 				}
 			}
 		}	
@@ -77,6 +82,16 @@ func main(){
 	fmt.Println(times)
 	fmt.Println(distances)
 	fmt.Println("Solutions: ", totalSolutions)
+
+	fmt.Println("Big Time: ", big_time)
+	fmt.Println("Big Distance: ", big_distance)
+
+	t,err := strconv.Atoi(big_time)
+	d, err := strconv.Atoi(big_distance)
+
+	big_solution := CheckNumSolutions(t, d)
+
+	fmt.Println("Big Solution: ", big_solution)
 
 	elapsed := time.Since(executionTime)
 	fmt.Println("Done in", elapsed)
