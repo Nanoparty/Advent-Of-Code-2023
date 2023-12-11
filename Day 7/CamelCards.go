@@ -32,6 +32,8 @@ func main(){
 	var bids map[int]int = make(map[int]int)
 
 	five := []string[]
+	four := []string[]
+	
 
 	line_num := 0
 	for scanner.Scan() {
